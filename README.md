@@ -25,5 +25,5 @@ Avant de commencer, il te faut :
 1️⃣ **Télécharge le projet** ou clone-le dans ton dossier local, par exemple :  
 ## Capture d'écran 📸
 
-![Capture d'écran de l'application](note-app/screenshot/note1.png)
-![Capture d'écran de l'application](note-app/screenshot/note2.png)
+![Capture d'écran de l'application](screenshot/note1.png)
+![Capture d'écran de l'application](screenshot/note2.png)
