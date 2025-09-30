@@ -1,25 +1,51 @@
 <?php
-require_once __DIR__ . '/../models/db.php';
 require_once __DIR__ . '/../models/noteModel.php';
 
-// Ajouter une note
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (!empty($_POST['title']) && !empty($_POST['content'])) {
-        addNote($pdo, $_POST['title'], $_POST['content']);
+function indexNotes() {
+    $notes = getNotes();
+    include __DIR__ . '/../views/header.php';
+    include __DIR__ . '/../views/notes.php';
+    include __DIR__ . '/../views/footer.php';
+}
+
+function createNote() {
+    include __DIR__ . '/../views/header.php';
+    include __DIR__ . '/../views/form.php';
+    include __DIR__ . '/../views/footer.php';
+}
+
+function storeNote() {
+    if ($_SERVER["REQUEST_METHOD"] === "POST") {
+        if (!empty($_POST['title']) && !empty($_POST['content'])) {
+            addNote($_POST['title'], $_POST['content']);
+        }
     }
-    header("Location: index.php");
+    header("Location: index.php?route=notes.index");
     exit;
 }
 
-// Supprimer une note
-if (isset($_GET['delete'])) {
-    deleteNote($pdo, $_GET['delete']);
-    header("Location: index.php");
+function deleteNoteRoute() {
+    if (isset($_GET['id'])) {
+        deleteNoteById($_GET['id']);
+    }
+    header("Location: index.php?route=notes.index");
     exit;
 }
+// ✅ Rechercher une note
+function searchNotes() {
+    global $pdo;
+    $search = $_GET['search'] ?? '';
+    $notes = getNotes($pdo, $search); 
+    include __DIR__ . '/../views/header.php';
+    include __DIR__ . '/../views/notes.php';
+    include __DIR__ . '/../views/footer.php';
+}
 
-// Récupérer les notes (filtrées ou non)
-$search = $_GET['search'] ?? null;
-$sort = $_GET['sort'] ?? 'date_desc';
-$filter = $_GET['filter'] ?? 'all';
-$notes = getNotes($pdo, $search);
+// ✅ Bonus : API JSON
+function apiNotes() {
+    global $pdo;
+    $notes = getNotes($pdo);
+    header('Content-Type: application/json');
+    echo json_encode($notes);
+     exit;
+}
