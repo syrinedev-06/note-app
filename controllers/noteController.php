@@ -18,5 +18,8 @@ if (isset($_GET['delete'])) {
     exit;
 }
 
-// Récupérer toutes les notes
-$notes = getNotes($pdo);
+// Récupérer les notes (filtrées ou non)
+$search = $_GET['search'] ?? null;
+$sort = $_GET['sort'] ?? 'date_desc';
+$filter = $_GET['filter'] ?? 'all';
+$notes = getNotes($pdo, $search);

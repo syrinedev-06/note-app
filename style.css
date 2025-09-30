@@ -1,6 +1,4 @@
-/* style.css */
-
-/* Police et mise en page générale */
+/* ===== Body général ===== */
 body {
     font-family: "Segoe UI", Tahoma, sans-serif;
     background: #f9f9f9;
@@ -10,15 +8,20 @@ body {
     padding: 20px;
 }
 
-/* Titre principal */
+/* ===== Titre principal avec cadre rose ===== */
 h1 {
     text-align: center;
-    color: #2c3e50;
     font-size: 2rem;
-    margin-bottom: 20px;
+    color: #fff; /* texte blanc */
+    background: linear-gradient(135deg, #ffb3d9, #ff66b3); /* dégradé rose */
+    padding: 20px 15px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    border: 2px solid #ff4d94;
+    margin-bottom: 30px;
 }
 
-/* Formulaire */
+/* ===== Formulaires ===== */
 form {
     background: #fff;
     padding: 20px;
@@ -28,7 +31,8 @@ form {
 }
 
 form input[type="text"],
-form textarea {
+form textarea,
+form select {
     width: 100%;
     padding: 10px;
     margin: 8px 0;
@@ -39,12 +43,12 @@ form textarea {
 }
 
 form textarea {
-    height: 100px;
+    min-height: 120px;
     resize: vertical;
 }
 
 form button {
-    background: #3498db;
+    background: #ff66b3; /* rose vif */
     color: white;
     border: none;
     padding: 10px 15px;
@@ -52,15 +56,22 @@ form button {
     cursor: pointer;
     font-size: 1rem;
     margin-top: 10px;
+    transition: background 0.3s ease;
 }
 
 form button:hover {
-    background: #2980b9;
+    background: #ff4d94;
 }
 
-/* Liste des notes */
+/* ===== Formulaire de recherche ===== */
+.search-form {
+    text-align: center;
+    margin: 20px 0;
+}
+
+/* ===== Liste des notes ===== */
 ul {
-    list-style-type: none;
+    list-style: none;
     padding: 0;
 }
 
@@ -70,6 +81,11 @@ li.note {
     margin-bottom: 15px;
     border-radius: 10px;
     box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease;
+}
+
+li.note:hover {
+    transform: translateY(-2px);
 }
 
 li.note strong {
@@ -82,14 +98,23 @@ li.note p {
     line-height: 1.4;
 }
 
-li.note small {
-    color: #7f8c8d;
-    font-size: 0.85rem;
-    display: block;
+.note-datetime {
     margin-top: 5px;
+    font-size: 0.85rem;
+    color: #7f8c8d;
 }
 
-/* Bouton supprimer */
+.note-date {
+    margin-right: 10px;
+    font-weight: bold;
+    color: #ff66b3; /* rose pour la date */
+}
+
+.note-time {
+    color: #c0392b; /* rouge pour l'heure */
+    font-style: italic;
+}
+
 li.note a {
     color: #e74c3c;
     text-decoration: none;
@@ -101,20 +126,8 @@ li.note a {
 li.note a:hover {
     text-decoration: underline;
 }
-.note-datetime {
-    margin-top: 5px;
-    font-size: 0.85rem;
-    color: #7f8c8d;
-}
 
-.note-date {
-    margin-right: 10px;
-    font-weight: bold;
-    color: #2980b9; /* bleu pour la date */
+/* ===== Optional: styles pour éditeur (si jamais tu le remets) ===== */
+.CodeMirror, .editor-toolbar {
+    border-radius: 8px;
 }
-
-.note-time {
-    color: #c0392b; /* rouge pour l'heure */
-    font-style: italic;
-}
-
