@@ -1,224 +1,100 @@
-/* ===== Body général ===== */
+/* ====== RESET SIMPLE ====== */
 body {
-    font-family: "Segoe UI", Tahoma, sans-serif;
-    background: #fff0f5; /* rose très clair */
-    color: #333;
-    max-width: 700px;
-    margin: 40px auto;
+    font-family: Arial, sans-serif;
+    background-color: #ffe6f0; /* rose clair */
+    margin: 0;
     padding: 20px;
+    text-align: center; /* tout centré */
 }
 
-/* ===== Titre principal ===== */
+/* ====== TITRE PRINCIPAL ====== */
 h1 {
+    background-color: #d9d9d9; /* gris */
+    color: black;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;          
+    margin: 20px auto;   /* centré */
+}
+
+/* ====== BARRE DE NAVIGATION ====== */
+.navbar {
+    width: 80%;
+    margin: 0 auto 20px auto; /* centrée comme les notes */
     text-align: center;
-    font-size: 2.3rem;
-    color: #fff;
-    background: linear-gradient(135deg, #ff99cc, #ff66b3);
-    padding: 25px 15px;
-    border-radius: 20px;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.25);
-    border: 2px solid #ff4d94;
-    margin-bottom: 30px;
+    background-color: #d9d9d9;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: black;
+    margin: 0 20px;
     font-weight: bold;
-    letter-spacing: 1px;
+    font-size: 20px;
 }
 
-/* ===== Formulaires ===== */
-form {
-    background: #ffe6f0; /* rose clair */
-    padding: 25px 20px;
-    margin-bottom: 25px;
-    border-radius: 15px;
-    box-shadow: inset 0 2px 8px rgba(0,0,0,0.05), 0 2px 5px rgba(0,0,0,0.1);
+.navbar a:hover {
+    text-decoration: underline;
 }
 
-form input[type="text"],
-form textarea,
-form select {
-    width: 100%;
-    padding: 12px;
-    margin: 10px 0;
-    border: 1px solid #ff99cc;
-    border-radius: 12px;
-    font-size: 1rem;
-    box-sizing: border-box;
-    background: #fff0f5;
-    transition: border 0.3s ease, box-shadow 0.3s ease;
-}
-
-form input[type="text"]:focus,
-form textarea:focus,
-form select:focus {
-    border: 1px solid #ff66b3;
-    box-shadow: 0 0 10px rgba(255,102,179,0.4);
-    outline: none;
-}
-
-form textarea {
-    min-height: 120px;
-    resize: vertical;
-}
-
-/* ===== Boutons ===== */
-form button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    background: #ff66b3;
-    color: white;
-    border: none;
-    padding: 12px 20px;
-    border-radius: 12px;
-    cursor: pointer;
-    font-size: 1rem;
-    margin-top: 10px;
-    font-weight: bold;
-    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-form button:hover {
-    background: #ff4d94;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-}
-
-/* ===== Formulaire de recherche ===== */
-.search-form {
-    text-align: center;
-    margin: 20px 0;
-}
-
-.search-form button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px; /* espace entre l’icône et le texte */
-    background: #ff66b3;
-    color: white;
-    border: none;
-    padding: 12px 20px;
-    border-radius: 12px;
-    cursor: pointer;
-    font-size: 1rem;
-    font-weight: bold;
-    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.search-form button:hover {
-    background: #ff4d94;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-}
-
-/* ===== Liste des notes ===== */
+/* ====== LISTE DES NOTES ====== */
 ul {
     list-style: none;
     padding: 0;
-}
-
-li.note {
-    background: #fff0f5;
-    padding: 18px;
-    margin-bottom: 18px;
-    border-radius: 18px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-li.note:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
-}
-
-li.note strong {
-    font-size: 1.3rem;
-    color: #000000;
-}
-
-li.note p {
-    margin: 10px 0;
-    line-height: 1.5;
-}
-
-.note-datetime {
-    margin-top: 5px;
-    font-size: 0.85rem;
-    color: #7f8c8d;
-}
-
-.note-date {
-    margin-right: 10px;
-    font-weight: bold;
-    color: #ff66b3;
-}
-
-.note-time {
-    color: #c0392b;
-    font-style: italic;
-}
-
-li.note a {
-    color: #e74c3c;
-    text-decoration: none;
-    font-weight: bold;
-    margin-top: 5px;
-    display: inline-block;
-    transition: color 0.3s ease;
-}
-
-li.note a:hover {
-    color: #ff1a75;
-    text-decoration: underline;
-}
-
-/* ===== Optional: styles pour éditeur ===== */
-.CodeMirror, .editor-toolbar {
-    border-radius: 8px;
-}
-
-/* ===== Styles pour la preview façon Word ===== */
-.editor-preview,
-.editor-preview-side {
-    background: white;
-    padding: 40px;
-    max-width: 800px;
+    max-width: 80%;   /* même largeur que le titre */
     margin: 20px auto;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-    border-radius: 6px;
-    line-height: 1.6;
-    font-family: "Segoe UI", Roboto, Arial, sans-serif;
 }
 
-.editor-preview h1,
-.editor-preview-side h1 {
-    font-size: 28px;
-    font-weight: 800;
-    margin: 0 0 16px 0;
+/* ====== STYLE DES NOTES ====== */
+.note {
+    background: #ffe6f0; /* 👈 fond rose clair pour toutes les notes */
+    border: 2px solid #ccc;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: left; /* texte aligné à gauche */
+    position: relative; /* pour placer supprimer dedans */
+    color: #333;
 }
 
-.editor-preview h2,
-.editor-preview-side h2 {
-    font-size: 32px;
-    font-weight: 600;
-    margin: 24px 0 12px 0;
+/* ====== TITRE ET CONTENU DE LA NOTE ====== */
+.note strong {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #333;
 }
 
-.editor-preview h3,
-.editor-preview-side h3 {
-    font-size: 26px;
-    font-weight: 500;
-    margin: 20px 0 10px 0;
+.note p {
+      color: blue;
+    margin-bottom: 10px;
 }
 
-.editor-preview p,
-.editor-preview-side p {
-    font-size: 16px;
-    margin: 10px 0;
+/* ====== DATE ET HEURE ====== */
+.note-datetime {
+    display: flex;
+    justify-content: flex-start; /* bien alignés à gauche */
+    gap: 50px; /* 👈 espace entre date et heure */
+    margin-top: 10px;
 }
 
-.editor-preview a,
-.editor-preview-side a {
-    color: #1155cc;
-    text-decoration: underline;
+/* ====== LIEN SUPPRIMER ====== */
+.note a {
+    color: rgb(220, 16, 16);
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 10px; /* reste bien dans l'encadré */
+}
+/* ====== TITRE DE LA LISTE DES NOTES ====== */
+h2 {
+    color: red;         /* 👈 texte en rouge */
+    font-size: 26px;    /* 👈 plus grand */
+    font-weight: bold;  
+    margin-top: 30px;
+    margin-bottom: 20px;
 }
